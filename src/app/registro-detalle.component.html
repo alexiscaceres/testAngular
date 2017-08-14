@@ -1,0 +1,13 @@
+<div *ngIf="registro">
+    <h2>Registro {{registro.nombre}} seleccionado</h2>
+    <div>
+        <label>posicion: {{registro.posicion}}</label>
+    </div>
+    <div>
+        <label>nombre: </label>
+        <input [(ngModel)] = "registro.nombre" placeholder="nombre" >
+    </div>
+    <div>
+        <button (click)="goBack()">Volver</button>
+    </div>
+</div>

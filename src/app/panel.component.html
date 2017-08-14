@@ -1,0 +1,8 @@
+<h3>Ultimos Registros</h3>
+<div>
+    <a *ngFor="let registro of registros" [routerLink]="['/detalle', registro.posicion]">
+        <div>
+            <h4>{{registro.nombre}}</h4>
+        </div>
+    </a>
+</div>
