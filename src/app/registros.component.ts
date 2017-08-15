@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Registro } from './registro';
 import { RegistroService } from './registro.service';
 
@@ -33,6 +34,14 @@ export class RegistrosComponent implements OnInit {
 
   goToDetalle(): void {
     this.router.navigate(['/detalle', this.registroSel.posicion]);
+  }
+
+  // clearSelect( event ): void {
+  clearSelect( posicion ) {
+
+    // if ( posicion === this.registroSel.posicion ) {
+      this.registroSel = null;
+    // }
   }
 
 }

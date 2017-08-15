@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
-import { Registro } from './registro';
 import { RegistroService } from './registro.service';
 
 @Component({
@@ -11,18 +10,30 @@ import { RegistroService } from './registro.service';
 
 export class AdmonPilaComponent {
 
-    nuevoReg: Registro;
+    @Output( )
+    eventClear = new EventEmitter( );
 
     constructor( private registroService: RegistroService ) { }
 
-    onClickAgregar( nombre: String ): void {
+    onClickAgregar( nombre: string ): void {
 
-        // this.registroService.addRegistro( this.nuevoReg.nombre  );
-        // this.nuevoReg.nombre = '' ;
+        nombre = nombre.trim();
+        if ( !nombre ) {
+            return;
+        }
+        this.registroService.addRegistro(nombre);
     }
 
     onClickEliminar( ): void {
 
+        // this.clearSelection( this.registroService.deleteRegistro( ) );
+        let posicion: number = this.registroService.deleteRegistro( );
+        this.clearSelection( posicion ) ;
     }
 
+     clearSelection( posicion: number ): void {
+    // clearSelection(  ): void {
+        this.eventClear.emit( { posicion: posicion } );
+    //    this.eventClear.emit( );
+    }
 }

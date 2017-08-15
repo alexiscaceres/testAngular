@@ -4,7 +4,6 @@ import { registros } from './mock-registros';
 // import { REGISTROS } from './mock-registros';
 
 
-
 @Injectable()
 
 export class RegistroService {
@@ -25,8 +24,13 @@ export class RegistroService {
                     .then( registros => registros.find( registro => registro.posicion === posicion ));
     }
 
-    addRegistro( registro: Registro ): void {
-        //registros.push(registro);
+
+    addRegistro( nombre: string ): void {
+        registros.push( { posicion: registros.length + 1, nombre: nombre } );
+    }
+
+    deleteRegistro( ): number {
+        return registros.pop( ).posicion;
     }
 
 }

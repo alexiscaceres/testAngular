@@ -16,7 +16,6 @@ import 'rxjs/add/operator/switchMap';
 
 export class RegistroDetalleComponent implements OnInit {
 
-    // @Input() registro: Registro;
     registro: Registro;
 
     constructor( private registroService: RegistroService,
@@ -32,13 +31,5 @@ export class RegistroDetalleComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
-
-    // onClickAgregar(): void {
-    //
-    // }
-    //
-    // onClickEliminar(): void {
-    //
-    // }
 }
 
