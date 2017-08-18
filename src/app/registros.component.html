@@ -1,22 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-admon-pila (eventClear)="clearSelect($event)"></app-admon-pila>
-<div>
-    <h2>Listado Registros: </h2>
-    <ul class="registros">
-        <!--
-        el *ngFor es para recorrer el array de registros,
-        el class.selected es un condicional para agregar un estilo css si se cumple la condición
-        el click (onSelect) es para agregar un callback para cuando se seleccione un registro de la lista
-        -->
-        <li *ngFor = "let registro of registros" [class.selected] = "registro === registroSel"  (click)="onSelect(registro)" >
-            <span class="badge">{{registro.posicion}}</span> {{registro.nombre}}
-        </li>
-    </ul>
+<div class="container">
+    <div>
+        <h2>Listado Registros: </h2>
+        <ul class="registros">
+            <!--
+            el *ngFor es para recorrer el array de registros,
+            el class.selected es un condicional para agregar un estilo css si se cumple la condición
+            el click (onSelect) es para agregar un callback para cuando se seleccione un registro de la lista
+            -->
+            <li *ngFor = "let registro of registros" [class.selected] = "registro === registroSel"  (click)="onSelect(registro)" >
+                <span class="badge">{{registro.posicion}}</span> {{registro.nombre}}
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="registroSel">
+        <h2>{{ registroSel.nombre | uppercase }} ha sido seleccionado</h2>
+        <button (click)="goToDetalle()">Ver Detalle</button>
+    </div>
 </div>
-<div *ngIf="registroSel">
-    <h2>{{ registroSel.nombre | uppercase }} ha sido seleccionado</h2>
-    <button (click)="goToDetalle()">Ver Detalle</button>
-</div>
+
 
 
 

@@ -1,7 +1,9 @@
-<div>
-    <label>nombre: </label><input #registroNombre>
-</div>
-<div>
-    <button (click)="onClickAgregar(registroNombre.value); registroNombre.value=''">Agregar</button>
-    <button (click)="onClickEliminar()">Eliminar</button>
+<div class="container">
+    <div>
+        <label>nombre: </label><input #registroNombre>
+    </div>
+    <div>
+        <button (click)="onClickAgregar(registroNombre.value); registroNombre.value=''">Agregar</button>
+        <button (click)="onClickEliminar()">Eliminar</button>
+    </div>
 </div>
